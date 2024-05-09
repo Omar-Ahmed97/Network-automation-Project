@@ -1,0 +1,7 @@
+{% for process in protocol.bgp %}
+router bgp {{process.AS_id}}
+ bgp router-id {{process.router_id}}
+ {% for neighbor in process.neighbors %}
+ neighbor {{neighbor.id}} remote-as {{neighbor.remote_as}}
+ {% endfor %}
+{% endfor %}
