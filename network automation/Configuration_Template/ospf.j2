@@ -1,4 +1,5 @@
-{% for process in protocol.ospf %}
+{% if network_object.connection_method == 1 %}
+{% for process in network_object.protocol.ospf %}
 router ospf {{ process.process_id }}
 router-id {{process.router_id}}
 {% for network in process.networks %}
@@ -6,3 +7,36 @@ network {{network.network}} {{network.wildmask}} area {{network.area}}
 
 {% endfor %}
 {% endfor %}
+
+
+{% else %}
+
+{
+    "Cisco-IOS-XE-ospf:ospf": [
+        {
+        {% for process in network_object.protocol.ospf %}
+            "id": {{ process.process_id }},
+            "router-id": "{{process.router_id}}"
+            {% if process.networks %},
+            "network": [
+            {% endif %}
+            {% for network in process.networks %}
+
+             {% if loop.index != 1 %}
+             ,
+            {% endif %}
+
+                {
+                    "ip": "{{network.network}}",
+                    "mask": "{{network.wildmask}}",
+                    "area": {{network.area}}
+                }
+            {% endfor %}
+            {% if process.networks %}
+            ]
+            {% endif %}
+        {% endfor %}
+        }
+    ]
+}
+{% endif %}

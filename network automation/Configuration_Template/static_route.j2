@@ -1,0 +1,26 @@
+{% if network_object.connection_method == 1 %}
+{% for ip in network_object.protocol.static %}
+ip route  {{ip.prefix}}  {{ip.mask}}   {% if ip.exit_interface %} {{ ip.exit_interface}} {%endif%} {% if ip.next_hop %} {{ ip.next_hop}} {%endif%}
+
+{% endfor %}
+
+{% else %}
+
+{
+    "Cisco-IOS-XE-native:ip-route-interface-forwarding-list": {
+    {% for ip in network_object.protocol.static %}
+        "prefix": "{{ip.prefix}}",
+        "mask":  "{{ip.mask}}",
+        "fwd-list": [
+            {
+                "fwd":"{{ip.next_hop}}"
+            },
+            {
+                "fwd": "{{ip.exit_interface}}"
+            }
+        ]
+
+        {% endfor %}
+    }
+}
+{% endif %}

@@ -1,8 +1,10 @@
   bgp:
     - AS_id: 100
-      router_id: 1.1.1.1
+      router_id: '6.6.6.6'
       neighbors:
-        - id: 2.2.2.2
+        - id: '2.2.2.2'
           remote_as: 200
-        - id: 3.3.3.3
+        - id: '4.4.4.4'
+          remote_as: 200
+        - id: '3.3.3.3'
           remote_as: 300

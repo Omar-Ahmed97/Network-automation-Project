@@ -1,5 +1,5 @@
 hosts:
-  - hostname : '192.168.204.130'
+  - hostname : '192.168.75.128'
     port : 22
     username: 'omar'
     password: 'omar'

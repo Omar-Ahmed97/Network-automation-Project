@@ -1,7 +1,47 @@
-{% for process in protocol.bgp %}
+
+
+{% if network_object.connection_method == 1 %}
+{% for process in network_object.protocol.bgp %}
 router bgp {{process.AS_id}}
  bgp router-id {{process.router_id}}
  {% for neighbor in process.neighbors %}
  neighbor {{neighbor.id}} remote-as {{neighbor.remote_as}}
  {% endfor %}
 {% endfor %}
+
+{% else %}
+
+{
+    "Cisco-IOS-XE-bgp:bgp": [
+        {
+            {% for process in network_object.protocol.bgp %}
+            "id" : {{process.AS_id}} ,
+            "bgp" : {
+                "log-neighbor-changes" : true ,
+                "router-id" : {
+                    "ip-id" : "{{process.router_id}}"
+                }
+
+            }{% if process.neighbors %},
+             "neighbor" :
+             [
+            {% endif %}
+            {% for neighbor in process.neighbors %}
+            {% if loop.index != 1 %}
+             ,
+            {% endif %}
+                {
+                    "id" : "{{neighbor.id}}" ,
+                    "remote-as" : {{neighbor.remote_as}}
+                }
+             {% endfor %}
+
+           {% if process.neighbors %}
+             ]
+            {% endif %}
+        {% endfor %}
+        }
+    ]
+}
+
+{% endif %}
