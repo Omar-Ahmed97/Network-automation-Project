@@ -39,8 +39,8 @@ def add_static_route(json_file):
     if( "prefix" in get_static_route() ):
         prefix = get_prefix_static(get_static_route())
         mask = get_mask_static(get_static_route())
-        prefix_json = json_file.get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
-        mask_json = json_file.get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
+        prefix_json = json.loads(json_file).get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
+        mask_json = json.loads(json_file).get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
         if( prefix_json[0] in prefix  and mask_json[0] in  mask  ):
             hosts = load_data("Configuration_Data/host.yaml")
             hostname = hosts.get("hosts")[0]['hostname']
