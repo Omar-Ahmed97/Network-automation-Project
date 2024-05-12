@@ -66,25 +66,11 @@ while(True):
         print(j_file)
 
         if ( choice  == 1) :
-            id_router  = bgp.get_id_bgp(bgp.get_bgp())
-            print(id_router)
-            id_yaml =  bgp.get_id_bgp(j_file)
-            print( id_yaml)
-            if(id_router == id_yaml):
-                bgp.edit_bgp(j_file)
-            else:
-                bgp.add_bgp(j_file)
+
+            bgp.edit_bgp(j_file)
             print(bgp.get_bgp())
         elif(choice  == 2):
-
-            id_router = ospf.get_id_ospf(ospf.get_ospf())
-            print(id_router)
-            id_yaml = ospf.get_id_ospf(j_file)
-            print(id_yaml)
-            if (id_router == id_yaml):
-                ospf.edit_ospf(j_file)
-            else:
-                ospf.add_ospf(j_file)
+            ospf.edit_ospf(j_file)
             print(ospf.get_ospf())
         else :
             add_static_route(j_file)

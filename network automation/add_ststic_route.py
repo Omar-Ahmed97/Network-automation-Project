@@ -36,7 +36,7 @@ def delet_static_route(prefix,mask):
 
 
 def add_static_route(json_file):
-    if( "prefix" in get_static_route() and ()):
+    if( "prefix" in get_static_route() ):
         prefix = get_prefix_static(get_static_route())
         mask = get_mask_static(get_static_route())
         prefix_json = json_file.get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")

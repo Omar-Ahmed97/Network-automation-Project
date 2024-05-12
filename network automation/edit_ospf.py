@@ -10,10 +10,11 @@ def get_id_ospf(j_file):
 
 
 def delet_ospf():
+
   id = get_id_ospf(get_ospf())
-
-  url = f"https://192.168.75.128/restconf/data/Cisco-IOS-XE-native:native/router/ospf={id}"
-
+  hosts = load_data("Configuration_Data/host.yaml")
+  hostname = hosts.get("hosts")[0]['hostname']
+  url = f'https://{hostname}/restconf/data/Cisco-IOS-XE-native:native/router/ospf={id}'
   payload = ""
   headers = {
     'Accept': 'application/yang-data+json',
@@ -38,7 +39,7 @@ def add_ospf(json_file):
   response = requests.request("POST", url, headers=headers, data=payload,verify=False)
 
 
-def edit_ospf(json_file):
+def edit_ospf1(json_file):
   id = get_id_ospf(get_ospf())
   hosts = load_data("Configuration_Data/host.yaml")
   hostname = hosts.get("hosts")[0]['hostname']
@@ -68,3 +69,14 @@ def get_ospf():
 
   response = requests.request("GET", url, headers=headers, data=payload,verify=False)
   return response.text
+
+
+def edit_ospf(json_file):
+  if("id" in get_ospf()):
+    id_router = get_id_ospf(get_ospf())
+    id_yaml = get_id_ospf(json_file)
+    if (id_router == id_yaml):
+      edit_ospf1(json_file)
+      exit()
+
+  add_ospf(json_file)

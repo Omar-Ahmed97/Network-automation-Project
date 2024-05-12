@@ -39,7 +39,7 @@ def add_bgp(json_file):
   response = requests.request("POST", url, headers=headers, data=payload,verify=False)
 
 
-def edit_bgp(json_file):
+def edit_bgp1(json_file):
   id = get_id_bgp(get_bgp())
   hosts = load_data("Configuration_Data/host.yaml")
   hostname = hosts.get("hosts")[0]['hostname']
@@ -55,7 +55,6 @@ def edit_bgp(json_file):
   response = requests.request("PUT", url, headers=headers, data=payload,verify=False)
 
 
-
 def get_bgp():
 
   url = "https://192.168.75.128/restconf/data/Cisco-IOS-XE-native:native/router/bgp"
@@ -69,3 +68,13 @@ def get_bgp():
 
   response = requests.request("GET", url, headers=headers, data=payload,verify=False)
   return response.text
+
+def edit_bgp(json_file):
+  if("id" in get_bgp()):
+    id_router = get_id_bgp(get_bgp())
+    id_yaml = get_id_bgp(json_file)
+    if (id_router == id_yaml):
+      edit_bgp1(json_file)
+      exit()
+
+  add_bgp(json_file)
