@@ -57,7 +57,7 @@ def edit_ospf1(json_file):
 
 
 def get_ospf():
-  id = get_id_ospf(get_ospf())
+
   hosts = load_data("Configuration_Data/host.yaml")
   hostname = hosts.get("hosts")[0]['hostname']
   url = f'https://{hostname}/restconf/data/Cisco-IOS-XE-native:native/router/ospf'
