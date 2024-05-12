@@ -16,6 +16,7 @@ pipeline {
           python3 -m venv ./network automation/venv
           . ./network automation/venv/bin/activate
           cd ./network automation
+          pwd
           pip3 install -r ./req.txt
           pip3 install pylint
           pip3 install autopep8
