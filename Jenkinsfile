@@ -31,6 +31,7 @@ pipeline {
       steps {
         script {
           sh """
+          . ./network_automation/venv/bin/activate
           cd ./network_automation
           pylint *.py
           autopep8 --in-place --aggressive --aggressive *.py
@@ -43,6 +44,7 @@ pipeline {
       steps {
         script {
           sh """
+          . ./network_automation/venv/bin/activate
           cd ./network_automation
           sed -i -r "s/(hostname .*)/hostname : '192.168.56.101'/g" Configuration_Data/host.yaml
           echo "1\n1\n1\n2\n2\n1\n2\n2\n3\n1\n3\n2\n0\n" > all_possible_inputes
