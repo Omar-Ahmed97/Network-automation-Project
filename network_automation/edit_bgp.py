@@ -77,6 +77,6 @@ def edit_bgp(json_file):
     id_yaml = get_id_bgp(json_file)
     if (id_router == id_yaml):
       edit_bgp1(json_file)
-      exit()
+      return 0
 
   add_bgp(json_file)

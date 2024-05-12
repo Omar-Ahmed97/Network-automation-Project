@@ -79,6 +79,6 @@ def edit_ospf(json_file):
     id_yaml = get_id_ospf(json_file)
     if (id_router == id_yaml):
       edit_ospf1(json_file)
-      exit()
+      return 0
 
   add_ospf(json_file)
