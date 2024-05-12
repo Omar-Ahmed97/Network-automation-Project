@@ -57,7 +57,9 @@ def edit_bgp1(json_file):
 
 def get_bgp():
 
-  url = "https://192.168.75.128/restconf/data/Cisco-IOS-XE-native:native/router/bgp"
+  hosts = load_data("Configuration_Data/host.yaml")
+  hostname = hosts.get("hosts")[0]['hostname']
+  url = f'https://{hostname}/restconf/data/Cisco-IOS-XE-native:native/router/bgp'
 
   payload = ""
   headers = {
