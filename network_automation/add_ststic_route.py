@@ -41,10 +41,10 @@ def add_static_route(json_file):
         mask = get_mask_static(get_static_route())
         prefix_json = json.loads(json_file).get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
         mask_json = json.loads(json_file).get("Cisco-IOS-XE-native:ip-route-interface-forwarding-list").get("prefix")
-        if( prefix_json[0] in prefix  and mask_json[0] in  mask  ):
+        if( prefix_json in prefix  and mask_json in  mask  ):
             hosts = load_data("Configuration_Data/host.yaml")
             hostname = hosts.get("hosts")[0]['hostname']
-            url = f'https://{hostname}/restconf/data/Cisco-IOS-XE-native:native/ip/route/ip-route-interface-forwarding-list={prefix_json[0]},{mask_json[0]}'
+            url = f'https://{hostname}/restconf/data/Cisco-IOS-XE-native:native/ip/route/ip-route-interface-forwarding-list={prefix_json},{mask_json}'
 
             payload = json_file
             headers = {
@@ -69,7 +69,7 @@ def add_static_route(json_file):
      'Authorization': 'Basic b21hcjpvbWFy'
         }
     response = requests.request("POST", url, headers=headers, data=payload, verify=False)
-    print(response.text)
+
 
 
 

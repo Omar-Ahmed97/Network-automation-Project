@@ -1,7 +1,7 @@
 import json
 import edit_bgp as bgp
 import edit_ospf as ospf
-from add_ststic_route import add_static_route
+from add_ststic_route import add_static_route, get_static_route
 from ssh_invoke_shell import invoke_shell as invoke_shell
 import time
 from str_to_json import str_to_json as str_to_json
@@ -69,6 +69,7 @@ while True:
             print(ospf.get_ospf())
         else :
             add_static_route(j_file)
+            print(get_static_route())
 
 
 
