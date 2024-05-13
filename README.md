@@ -1,15 +1,11 @@
-# Network-automation-Project
-# **Software Design**
+# Network automation using REST API with Jenkins CI/CD tool 
 
-# **Documentation for**
 
 **Network automation using REST API**
 
 **with Jenkins CI/CD tool**
 
-prepared by
 
-Omar Ahmed Abdellatif
 
 ## Introduction
 
