@@ -1,0 +1,329 @@
++ . ./network_automation/venv/bin/activate
++ deactivate nondestructive
++ [ -n  ]
++ [ -n  ]
++ [ -n  -o -n  ]
++ [ -n  ]
++ unset VIRTUAL_ENV
++ unset VIRTUAL_ENV_PROMPT
++ [ ! nondestructive = nondestructive ]
++ VIRTUAL_ENV=/var/jenkins_home/workspace/network_automation_pipeline/network_automation/venv
++ export VIRTUAL_ENV
++ _OLD_VIRTUAL_PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ PATH=/var/jenkins_home/workspace/network_automation_pipeline/network_automation/venv/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ export PATH
++ [ -n  ]
++ [ -z  ]
++ _OLD_VIRTUAL_PS1=# 
++ PS1=(venv) # 
++ export PS1
++ VIRTUAL_ENV_PROMPT=(venv) 
++ export VIRTUAL_ENV_PROMPT
++ [ -n  -o -n  ]
++ cd ./network_automation
++ sed -i -r s/(hostname .*)/hostname : '192.168.56.101'/g Configuration_Data/host.yaml
++ echo 1
+1
+1
+2
+2
+1
+2
+2
+3
+1
+3
+2
+0
+
++ python3 ./main.py
+{'hostname': '192.168.56.101', 'port': 22, 'username': 'omar', 'password': 'omar'}
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: 
+
+
+R1#en 
+R1#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       192.168.75.128  YES DHCP   up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  up                    up      
+GigabitEthernet3       192.168.56.101  YES DHCP   up                    up      
+Loopback0              1.1.1.1         YES NVRAM  up                    up      
+R1#conf ter 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#router bgp 100
+R1(config-router)# bgp router-id 6.6.6.6
+R1(config-router)# 
+R1(config-router)# neighbor 2.2.2.2 remote-as 200
+R1(config-router)# 
+R1(config-router)# neighbor 4.4.4.4 remote-as 200
+R1(config-router)# 
+R1(config-router)# neighbor 3.3.3.3 remote-as 300
+R1(config-router)#
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: {
+    "Cisco-IOS-XE-bgp:bgp": [
+        {
+            
+            "id" : 100 ,
+            "bgp" : {
+                "log-neighbor-changes" : true ,
+                "router-id" : {
+                    "ip-id" : "6.6.6.6"
+                }
+
+            },
+             "neighbor" :
+             [
+            
+            
+            
+                {
+                    "id" : "2.2.2.2" ,
+                    "remote-as" : 200
+                }
+             
+            
+             ,
+            
+                {
+                    "id" : "4.4.4.4" ,
+                    "remote-as" : 200
+                }
+             
+            
+             ,
+            
+                {
+                    "id" : "3.3.3.3" ,
+                    "remote-as" : 300
+                }
+             
+
+           
+             ]
+            
+        
+        }
+    ]
+}
+<class 'str'>
+{"Cisco-IOS-XE-bgp:bgp": [{"id": 100, "bgp": {"log-neighbor-changes": true, "router-id": {"ip-id": "6.6.6.6"}}, "neighbor": [{"id": "2.2.2.2", "remote-as": 200}, {"id": "4.4.4.4", "remote-as": 200}, {"id": "3.3.3.3", "remote-as": 300}]}]}
+{
+  "Cisco-IOS-XE-bgp:bgp": [
+    {
+      "id": 100,
+      "bgp": {
+        "log-neighbor-changes": true,
+        "router-id": {
+          "ip-id": "6.6.6.6"
+        }
+      },
+      "neighbor": [
+        {
+          "id": "2.2.2.2",
+          "remote-as": 200
+        },
+        {
+          "id": "3.3.3.3",
+          "remote-as": 300
+        },
+        {
+          "id": "4.4.4.4",
+          "remote-as": 200
+        }
+      ]
+    }
+  ]
+}
+
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: 
+
+
+R1#en 
+R1#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       192.168.75.128  YES DHCP   up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  up                    up      
+GigabitEthernet3       192.168.56.101  YES DHCP   up                    up      
+Loopback0              1.1.1.1         YES NVRAM  up                    up      
+R1#conf ter 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#router ospf 2
+R1(config-router)#router-id 1.3.1.1
+R1(config-router)#
+R1(config-router)#network 192.168.1.0 0.0.0.255 area 0
+R1(config-router)#
+R1(config-router)#
+R1(config-router)#network 192.168.89.0 0.0.0.255 area 0
+R1(config-router)#
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: {
+    "Cisco-IOS-XE-ospf:ospf": [
+        {
+        
+            "id": 2,
+            "router-id": "1.3.1.1"
+            ,
+            "network": [
+            
+            
+
+             
+
+                {
+                    "ip": "192.168.1.0",
+                    "mask": "0.0.0.255",
+                    "area": 0
+                }
+            
+
+             
+             ,
+            
+
+                {
+                    "ip": "192.168.89.0",
+                    "mask": "0.0.0.255",
+                    "area": 0
+                }
+            
+            
+            ]
+            
+        
+        }
+    ]
+}
+<class 'str'>
+{"Cisco-IOS-XE-ospf:ospf": [{"id": 2, "router-id": "1.3.1.1", "network": [{"ip": "192.168.1.0", "mask": "0.0.0.255", "area": 0}, {"ip": "192.168.89.0", "mask": "0.0.0.255", "area": 0}]}]}
+{
+  "Cisco-IOS-XE-ospf:ospf": [
+    {
+      "id": 2,
+      "router-id": "1.3.1.1",
+      "network": [
+        {
+          "ip": "192.168.1.0",
+          "mask": "0.0.0.255",
+          "area": 0
+        },
+        {
+          "ip": "192.168.89.0",
+          "mask": "0.0.0.255",
+          "area": 0
+        }
+      ]
+    }
+  ]
+}
+
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: 
+
+
+R1#en 
+R1#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       192.168.75.128  YES DHCP   up                    up      
+GigabitEthernet2       unassigned      YES NVRAM  up                    up      
+GigabitEthernet3       192.168.56.101  YES DHCP   up                    up      
+Loopback0              1.1.1.1         YES NVRAM  up                    up      
+R1#conf ter 
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#
+R1(config)#ip route  1.1.1.1  255.255.255.255    GigabitEthernet3   192.3.1.9
+R1(config)#
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: how do you want to connect to your device using 1-ssh  2-restAPI :: {
+    "Cisco-IOS-XE-native:ip-route-interface-forwarding-list": {
+    
+        "prefix": "1.1.1.1",
+        "mask":  "255.255.255.255",
+        "fwd-list": [
+            {
+                "fwd":"192.3.1.9"
+            },
+            {
+                "fwd": "GigabitEthernet3"
+            }
+        ]
+
+        
+    }
+}
+<class 'str'>
+{"Cisco-IOS-XE-native:ip-route-interface-forwarding-list": {"prefix": "1.1.1.1", "mask": "255.255.255.255", "fwd-list": [{"fwd": "192.3.1.9"}, {"fwd": "GigabitEthernet3"}]}}
+{
+  "Cisco-IOS-XE-native:ip-route-interface-forwarding-list": [
+    {
+      "prefix": "1.1.1.1",
+      "mask": "255.255.255.255",
+      "fwd-list": [
+        {
+          "fwd": "GigabitEthernet3",
+          "interface-next-hop": [
+            {
+              "ip-address": "192.3.1.9"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+**********
+Welcome to Router configuration: 
+**********
+Protocols :
+            1- bgp
+            2- ospf
+            3- static route 
+
+Please choose the number between 1-3 and 0 to quit:: 
