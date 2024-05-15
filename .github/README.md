@@ -1,12 +1,18 @@
-﻿
+﻿#
+#
+#
+#
+**Network automation using REST API with Jenkins CI/CD tool** 
 
 
 
-##
+
+
+
 1. ## **Introduction**
 
+
 1. ### **Overview**
-   ###
 Provide description about my network automation with Jenkins project 
 
 1. **SYSTEM OVERVIEW**
@@ -16,13 +22,11 @@ Automate the process of configuration network devices using python programing la
 1. ## **System Architecture**
 
 1. ### **Architectural Design**
-###
-###
 
 - Overview of CI/CD of my project
 
 
-![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.001.png)
+![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.001.png)
 
 
 
@@ -38,19 +42,14 @@ Automate the process of configuration network devices using python programing la
 
 - ` `The network of the connected devices in my host environment
 
-![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.002.png)
 
-
+![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.002.png)
 
 
 1. ### **Flow chart Description**
 Flow chart of the code to automat the configuration of network device.
 
-![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.003.png)
-
-
-
-
+![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.003.png)
 
 
 
@@ -68,16 +67,16 @@ Flow chart of the code to automat the configuration of network device.
 
 1. ## **CODE  Details**
 
-###
+
 1. ### **Data Description**
 
-![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.004.png)
+![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.004.png)
 1. ### **Code Description and snippets**
 Take the choice of ospf protocol to describe the steps of the code
 
 - ospf.yaml file
 
-  ![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.005.png)
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.005.png)
 
 
 
@@ -88,23 +87,74 @@ Take the choice of ospf protocol to describe the steps of the code
 
   the jinja part to make configuration suitable for ssh commands
 
-  ![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.006.png)
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.006.png)
 
-`	`the jinja part to make configuration suitable for yangmodel
+- the jinja part to make configuration 
+- suitable for yangmodel
 
-`	`![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.007.png)
+`	`![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.007.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 - the output of rendering in case of rest api
 
  
 
-  ![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.008.png)
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.008.png)
 
 - the output of rendering in case of  SSH
 
-  ![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.009.png)
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.009.png)
 
 
+
+
+
+
+
+
+
+
+1. ## **Running my project as a container**
+
+- My Dockerfile
+
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.010.png)
+
+
+- Building image
+
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.011.png)
+
+- Create in Docker ipvlan Network 
+
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.012.png)
+
+- Run a container of my project
+
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.013.png)
+
+
+
+
+
+
+
+
+
+- Showing running 
+
+  ![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.014.png)
 
 
 
@@ -114,7 +164,7 @@ Take the choice of ospf protocol to describe the steps of the code
 
 The steps of the pipeline 
 
-![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.010.png)
+![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.015.png)
 
 
 
@@ -125,6 +175,5 @@ The steps of the pipeline
 
   The output of this stage is in log file : [log.txt](https://github.com/Omar-Ahmed97/Network-automation-Project/blob/master/log.txt) 
 
-.![](Aspose.Words.4bbfeb75-6aa0-43cf-a59b-8fd8f6307449.011.png)
-
+.![](Aspose.Words.de79f159-d745-454b-a8a2-7e2e98e8ea10.016.png)
 
